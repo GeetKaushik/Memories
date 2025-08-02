@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Friendship Day</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fdf6f0;
+      color: #333;
+      text-align: center;
+    }
+    header {
+      padding: 2rem;
+      background: #ffb6c1;
+      color: white;
+      font-size: 2rem;
+    }
+    .reveal-section {
+      margin: 2rem 0;
+    }
+    .reveal-btn {
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .message {
+      display: none;
+      font-size: 1.8rem;
+      margin-top: 1rem;
+      color: #d63384;
+    }
+    .timeline, .quiz {
+      margin: 2rem auto;
+      width: 80%;
+      max-width: 700px;
+      text-align: left;
+    }
+    .timeline li {
+      margin-bottom: 1rem;
+    }
+    .gallery {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      padding: 1rem;
+    }
+    .gallery img {
+      width: 200px;
+      border-radius: 15px;
+    }
+    .hug-button {
+      margin: 2rem;
+      padding: 1rem 2rem;
+      background-color: #ffd700;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+    .hug-animation {
+      display: none;
+      font-size: 2rem;
+      animation: hug 1s ease-in-out infinite;
+    }
+    @keyframes hug {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+    iframe {
+      margin: 2rem auto;
+      display: block;
+      max-width: 100%;
+      border-radius: 10px;
+    }
+    .quiz-option {
+      margin: 0.5rem 0;
+    }
+    .quiz-option input {
+      margin-right: 0.5rem;
+    }
+    #quiz-result {
+      margin-top: 1rem;
+      font-weight: bold;
+      color: #28a745;
+    }
+    .hug-animation {
+  display: none;
+  font-size: 2rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.hug-animation.show {
+  display: block;
+  opacity: 1;
+}
+.butterfly {
+  position: absolute;
+  width: 40px;
+  pointer-events: none;
+  z-index: 1000;
+  animation: fly linear infinite;
+}
+
+@keyframes fly {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    transform: translate(100px, -100px) rotate(180deg);
+  }
+  100% {
+    transform: translate(300px, -500px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+
+
+ .video-collage {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      padding: 20px;
+    }
+
+    .video-collage iframe {
+      width: 100%;
+      height: 250px;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 768px) {
+      .video-collage {
+        grid-template-columns: 1fr;
+      }
+      .video-collage iframe {
+        height: 200px;
+      }
+    }
+
+
+
+.collage-container {
+  position: relative;
+  width: 600px;
+  height: 600px;
+}
+
+.moon-shape {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  clip-path: path('M300,0 C465,0 600,135 600,300 C600,465 465,600 300,600 C135,600 0,465 0,300 C0,135 135,0 300,0 M420,180 C380,140 320,120 260,140 C200,160 160,220 160,300 C160,380 200,440 260,460 C320,480 380,460 420,420 C460,380 480,320 460,260 C440,200 420,180 420,180 Z');
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding: 20px;
+}
+
+.moon-shape img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.moon-text {
+  position: absolute;
+  right: -20px;
+  bottom: 20px;
+  width: 250px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #444;
+  font-weight: bold;
+  font-family: 'Georgia', serif;
+}
+
+  </style>
+</head>
+<body>
+  <header>💖 Happy Friendship Day 💖</header>
+
+  <section class="reveal-section">
+    <button class="reveal-btn" onclick="revealMessage()">Tap to Reveal</button>
+    <div class="message" id="hiddenMessage">Wishing you endless laughter, love, and inside jokes forever! 🎉
+        <br>HAPPY 6 YEARS TOGETHER!!!</div>
+  </section>
+
+  <section class="timeline">
+    <h2>📅 Timeline of Memories</h2>
+    <ul>
+      <li><strong>2019:</strong> The friendship began — a connection like no other!</li>
+      <li><strong>2020:</strong> Zoom calls and quarantine chaos 🎧</li>
+      <li><strong>2021:</strong> Our unforgettable trip with zero planning 😅</li>
+      <li><strong>2022:</strong> Leaning on each other through tough times 💪</li>
+      <li><strong>2023:</strong> Achieving goals, growing together 🚀</li>
+      <li><strong>2024:</strong> STAYING TOGETHER Full of Chaos And Fighting 👭</li>
+      <li><strong>2025:</strong> Will Meet AGAIN!!!!!!😍</li>
+
+    </ul>
+  </section>
+
+  <section class="gallery">
+    <div class="collage-container">
+    <div class="moon-shape">
+      <!-- Add your images here -->
+      
+    <img src="Pic1.jpg" />
+    <img src="Pic2.jpg" />
+    <img src="Pic3.jpg" />
+    <img src="Pic4.jpg" />
+    <img src="Pic5.jpg" />
+    <img src="Pic6.jpg" />
+    <img src="Pic7.jpg" />
+    <img src="Pic8.jpg" />
+    <img src="Pic9.jpg" />
+    <img src="Pic10.jpg" />
+    <img src="Pic11.jpg" />
+    <img src="Pic12.jpg" />
+    <img src="Pic13.jpg" />
+    <img src="Pic14.jpg" />
+    <img src="Pic15.jpg" />
+    <img src="Pic16.jpg" />
+    <img src="Pic17.jpg" />
+      <!-- Repeat for all 17 images -->
+    </div>
+    <div class="moon-text">
+      <h2>I love you<br>TO THE MOON<br>and back!</h2>
+    </div>
+  </div>
+    
+  </section>
+  <h2>🎥 Friendship Videos</h2>
+  <section class="video-collage">
+    
+    <iframe src="Vid1.mp4" title="Video 1"></iframe>
+    <iframe src="Vid2.mp4" title="Video 2"></iframe>
+    <iframe src="Vid4.mp4" title="Video 3"></iframe>
+    <iframe src="Vid6.mp4" title="Video 4"></iframe>
+  </section>
+
+  <section class="quiz">
+    <h2>🎯 Friendship Quiz</h2>
+    <form id="quizForm">
+      <p>Q1: What’s our go-to snack place?</p>
+      <div class="quiz-option"><input type="radio" name="q1" value="0">Kashyap Kitchen</div>
+      <div class="quiz-option"><input type="radio" name="q1" value="0">College Canteen</div>
+      <div class="quiz-option"><input type="radio" name="q1" value="1">Both</div>
+
+      <p>Q2: Who's always late? 😂</p>
+      <div class="quiz-option"><input type="radio" name="q2" value="1">You 😜</div>
+      <div class="quiz-option"><input type="radio" name="q2" value="0">Me 🤭</div>
+      <div class="quiz-option"><input type="radio" name="q2" value="0">Both of us 😅</div>
+
+      <p>Q3: Which emoji represents us best?</p>
+      <div class="quiz-option"><input type="radio" name="q3" value="1">😂</div>
+      <div class="quiz-option"><input type="radio" name="q3" value="0">🤝</div>
+      <div class="quiz-option"><input type="radio" name="q3" value="0">🐒</div>
+
+      <p>Q4: What word perfectly describes our friendship?</p>
+      <div class="quiz-option"><input type="radio" name="q4" value="1">Chaotic</div>
+      <div class="quiz-option"><input type="radio" name="q4" value="0">Loyal</div>
+      <div class="quiz-option"><input type="radio" name="q4" value="0">Unfiltered</div>
+
+      <p>Q5: Our favorite activity together?</p>
+      <div class="quiz-option"><input type="radio" name="q5" value="1">Video Calling</div>
+      <div class="quiz-option"><input type="radio" name="q5" value="0">Fighting 🏃</div>
+      <div class="quiz-option"><input type="radio" name="q5" value="0">Coding in silence 😴</div>
+
+      <button type="button" class="reveal-btn" onclick="checkQuiz()">Submit Answers</button>
+    </form>
+    <div id="quiz-result"></div>
+  </section>
+
+  <button class="hug-button" onclick="sendHug()">🤗 Need a Hug?</button>
+  <div class="hug-animation" id="hug">
+    <img src="Vid7.mp4" alt="Hug" style="width: 200px; border-radius: 10px;" />
+    <p style="font-size: 1.2rem; color: #d63384;">You just got a warm virtual hug! 🤗</p>
+  </div>
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/Scxs7L0vhZ4" title="Friendship Video" allowfullscreen></iframe>
+
+  <script>
+    function revealMessage() {
+      const msg = document.getElementById("hiddenMessage");
+      msg.style.display = "block";
+    }
+
+    function sendHug() {
+  const hug = document.getElementById("hug");
+  hug.classList.add("show");
+  setTimeout(() => {
+    hug.classList.remove("show");
+    setTimeout(() => {
+      hug.style.display = "none";
+    }, 300); // wait for fade-out
+  }, 3000); // show for 3 seconds
+}
+
+    function checkQuiz() {
+      const form = document.getElementById("quizForm");
+      const q1 = form.q1.value;
+      const q2 = form.q2.value;
+      const q3 = form.q3.value;
+      const q4 = form.q4.value;
+      const q5 = form.q5.value;
+      const total = parseInt(q1) + parseInt(q2) + parseInt(q3) + parseInt(q4) + parseInt(q5);
+      const result = document.getElementById("quiz-result");
+      result.innerHTML = `You scored ${total}/5 - ${total === 5 ? "Bestie Level: LEGEND 💖" : "You're still my favorite person! 😊"};`
+    }
+  
+    function createButterfly() {
+      const butterfly = document.createElement("img");
+      butterfly.src = "https://i.pinimg.com/originals/d7/0b/9b/d70b9bcf575f8ca592c19a7685b86920.gif"; // transparent PNG
+      butterfly.className = "butterfly";
+  
+      // Random start position
+      butterfly.style.left = Math.random() * window.innerWidth + "px";
+      butterfly.style.top = Math.random() * window.innerHeight + "px";
+  
+      // Random animation duration and delay
+      butterfly.style.animationDuration = (10 + Math.random() * 10) + "s";
+      butterfly.style.animationDelay = Math.random() * 5 + "s";
+  
+      // Random size
+      const scale = 0.8 + Math.random();
+      butterfly.style.transform = scale(${scale});
+  
+      document.body.appendChild(butterfly);
+  
+      // Remove after animation
+      setTimeout(() => {
+        butterfly.remove();
+      }, 15000);
+    }
+  
+    // Generate multiple butterflies over time
+    setInterval(() => {
+      createButterfly();
+    }, 1000); // one butterfly per second
+  
+    // Generate some butterflies on page load
+    for (let i = 0; i < 10; i++) {
+      createButterfly();
+    }
+  </script>
+  
+</body>
+</html>
